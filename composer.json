@@ -1,0 +1,12 @@
+{
+    "name": "mirsch/admin-bundle",
+    "description": "Symfony Admin Bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mirsch"
+        }
+    ],
+    "require": {}
+}
