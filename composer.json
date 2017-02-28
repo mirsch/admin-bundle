@@ -8,5 +8,8 @@
             "name": "mirsch"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload":     {
+        "psr-4": { "Mirsch\\Bundle\\AdminBundle\\": "" }
+    }
 }
