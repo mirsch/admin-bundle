@@ -1,0 +1,11 @@
+services:
+
+    mirsch.admin.menu.main_menu_builder:
+        class: Mirsch\Bundle\AdminBundle\Menu\MainMenuBuilder
+        arguments: ['@knp_menu.factory', '@event_dispatcher', '@security.authorization_checker']
+
+    mirsch.admin.menu.main_menu:
+        class: Knp\Menu\MenuItem
+        factory: ['@mirsch.admin.menu.main_menu_builder', createMenu]
+        tags:
+            - { name: knp_menu.menu, alias: main }

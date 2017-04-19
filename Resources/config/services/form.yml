@@ -1,0 +1,19 @@
+services:
+
+    mirsch.admin.form.roles_type:
+        class: Mirsch\Bundle\AdminBundle\Form\RolesType
+        arguments: ['@security.role_hierarchy', '@security.authorization_checker']
+        tags:
+            - { name: form.type}
+
+    mirsch.admin.form.admin_user_type:
+        class: Mirsch\Bundle\AdminBundle\Form\AdminUserType
+        arguments: ['%mirsch.admin.model.admin_user.entity%', '%mirsch.admin.model.admin_group.entity%']
+        tags:
+            - { name: form.type }
+
+    mirsch.admin.form.admin_group_type:
+        class: Mirsch\Bundle\AdminBundle\Form\AdminGroupType
+        arguments: ['%mirsch.admin.model.admin_group.entity%']
+        tags:
+            - { name: form.type }

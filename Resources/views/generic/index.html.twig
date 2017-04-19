@@ -1,0 +1,19 @@
+{% extends "@MirschAdmin/layout/layout.html.twig" %}
+
+{% set page_title = page_title | trans %}
+
+{% block content %}
+    {% embed '@MirschAdmin/layout/widgets/box.html.twig' %}
+        {% block widget_content %}
+
+            {{ datatable_render_html(datatable) }}
+
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ datatable_render_js(datatable) }}
+{% endblock %}

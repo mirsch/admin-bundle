@@ -1,0 +1,11 @@
+services:
+
+    mirsch.admin.datatable.adminuser:
+        class: '%mirsch.admin.model.admin_user.datatable%'
+        parent: sg_datatables.datatable.abstract
+        arguments: ['%mirsch.admin.model.admin_user.entity%']
+
+    mirsch.admin.datatable.admingroup:
+        class: '%mirsch.admin.model.admin_group.datatable%'
+        parent: sg_datatables.datatable.abstract
+        arguments: ['%mirsch.admin.model.admin_group.entity%']

@@ -1,0 +1,17 @@
+<div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="#">
+                {{ app.user.username }}
+            </a>
+        </li>
+        <li>
+            {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                <a href="{{ path('homepage', {'_switch_user': '_exit'}) }}"><i
+                            class="fa fa-sign-out"></i> {{ "mirsch.admin.impersonate_exit" }}</a>
+            {% else %}
+                <a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> {{ "mirsch.admin.logout" | trans }}</a>
+            {% endif %}
+        </li>
+    </ul>
+</div>

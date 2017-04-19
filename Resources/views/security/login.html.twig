@@ -1,0 +1,45 @@
+{% extends "@MirschAdmin/security/layout/layout.html.twig" %}
+
+{% block content %}
+
+    {% if error %}
+        <p class="login-box-msg text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+    {% endif %}
+    <form action="{{ path('login') }}" method="post">
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Username" name="_username">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Password" name="_password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                {#
+                <div class="checkbox icheck">
+                    <label>
+                        <input type="checkbox"> Remember Me
+                    </label>
+                </div>
+                #}
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                {#
+                    If you want to control the URL the user
+                    is redirected to on success
+                    <input type="hidden" name="_target_path" value="/account" />
+                #}
+                <button type="submit" class="btn btn-primary btn-block btn-flat">{{ "mirsch.admin.login" | trans }}</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+
+    {#
+    <a href="#">I forgot my password</a><br>
+    #}
+
+{% endblock %}

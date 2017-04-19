@@ -1,0 +1,14 @@
+mirsch_admin:
+    resource: "@MirschAdminBundle/Controller/"
+    type:     annotation
+
+# there is no controller for this, symfony manages this for us
+logout:
+    path: /logout
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+sg_datatables_bundle:
+    resource: "@SgDatatablesBundle/Controller/"
+    type:     annotation

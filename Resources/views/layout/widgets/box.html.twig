@@ -1,0 +1,19 @@
+<div class="box{{ widget_class is defined and widget_class is not empty ? ' ' ~ widget_class : '' }}"
+        {{ widget_id is defined and widget_id is not empty ? ' id=' ~ widget_id : '' }}>
+
+    {% if widget_title is defined %}
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ widget_title }}</h3>
+
+            {% if widget_class is defined and 'collaps' in widget_class %}
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-{{ 'collapsed-box' in widget_class ? 'plus' : 'minus' }}"></i></button>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="box-body">
+        {% block widget_content -%}{%- endblock %}
+    </div>
+</div>

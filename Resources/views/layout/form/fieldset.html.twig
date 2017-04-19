@@ -1,0 +1,13 @@
+{%- block fieldset_widget -%}
+
+    {% embed '@MirschAdmin/layout/widgets/box.html.twig' with {
+        'widget_title': legend is defined ? legend | trans({}, translation_domain) : '',
+        'widget_class': attr.class is defined ? attr.class : '',
+        'widget_id': id is defined ? id : ''
+    } %}
+        {% block widget_content %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+
+{%- endblock -%}

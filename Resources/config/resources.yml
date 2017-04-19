@@ -1,0 +1,14 @@
+mirsch_admin:
+    resources:
+        admin_user:
+            entity: 'Mirsch\Bundle\AdminBundle\Entity\AdminUser'
+            interface: 'Mirsch\Bundle\AdminBundle\Model\AdminUserInterface'
+            repository: 'Mirsch\Bundle\AdminBundle\Entity\AdminUserRepository'
+            form: 'Mirsch\Bundle\AdminBundle\Form\AdminUserType'
+            datatable: 'Mirsch\Bundle\AdminBundle\Datatable\AdminUserDatatable'
+        admin_group:
+            entity: 'Mirsch\Bundle\AdminBundle\Entity\AdminGroup'
+            interface: 'Mirsch\Bundle\AdminBundle\Model\AdminGroupInterface'
+            repository: 'Mirsch\Bundle\AdminBundle\Entity\AdminGroupRepository'
+            form: 'Mirsch\Bundle\AdminBundle\Form\AdminGroupType'
+            datatable: 'Mirsch\Bundle\AdminBundle\Datatable\AdminGroupDatatable'

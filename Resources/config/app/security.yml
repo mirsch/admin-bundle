@@ -1,0 +1,39 @@
+security:
+
+    providers:
+        adminuser:
+            entity:
+                class: 'Mirsch\Bundle\AdminBundle\Entity\AdminUser'
+                property: username
+
+    encoders:
+        Mirsch\Bundle\AdminBundle\Entity\AdminUser: bcrypt
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN:
+            - ROLE_ADMIN_USER
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: ~
+            switch_user: { role: ROLE_SUPER_ADMIN }
+            form_login:
+                login_path: login
+                check_path: login
+                csrf_token_generator: security.csrf.token_manager
+            logout:
+                path:   /logout
+                target: /
+
+        login:
+            pattern: ^/login
+            security: false
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_ADMIN_USER }

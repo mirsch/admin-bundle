@@ -1,0 +1,14 @@
+{% extends "@MirschAdmin/layout/layout.html.twig" %}
+
+{% set page_title = page_title | trans %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-floppy-o"></i> {{ "mirsch.admin.save" | trans }}
+    </button>
+    <a href="{{ path('admin_group') }}" class="btn btn-default">{{ "mirsch.admin.cancel" | trans }}</a>
+    {{ form_end(form) }}
+{% endblock %}

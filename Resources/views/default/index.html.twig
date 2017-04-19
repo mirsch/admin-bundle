@@ -1,0 +1,15 @@
+{% extends "@MirschAdmin/layout/layout.html.twig" %}
+
+{% set page_title = 'mirsch.admin.dashboard.title' | trans %}
+
+{% set widget_title = 'Your Dashboard' %}
+
+{% block content %}
+    {% embed '@MirschAdmin/layout/widgets/box.html.twig' %}
+        {% block widget_content %}
+
+            Implement your own Dashboard.
+
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

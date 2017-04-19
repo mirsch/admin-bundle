@@ -1,0 +1,17 @@
+mirsch:
+    admin:
+        page:
+            toggle_navigation: 'Navigation umschalten'
+        success:
+          saved: 'Erfolgreich gespeichert'
+        save: 'Speichern'
+        cancel: 'Abbrechen'
+        logout: 'Logout'
+        login: 'Login'
+        menu:
+            main:
+                dashboard: 'Dashboard'
+                user: 'Benutzer'
+                groups: 'Gruppen'
+        dashboard:
+            title: 'Dashboard'

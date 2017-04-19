@@ -1,0 +1,44 @@
+mirsch:
+    admin:
+        page:
+            toggle_navigation: 'Toggle navigation'
+        success:
+          saved: 'Successfully saved'
+        save: 'Save'
+        cancel: 'Cancel'
+        logout: 'Logout'
+        login: 'Login'
+        menu:
+            main:
+                dashboard: 'Dashboard'
+                user: 'User'
+                groups: 'Groups'
+        dashboard:
+            title: 'Dashboard'
+
+
+admin_user:
+    title: 'Admin User Management'
+
+dashboard:
+    title: Dashboard
+
+datatables:
+    actions:
+        edit: Edit
+        title: Actions
+        impersonate: 'datatables.actions.impersonate'
+
+generic:
+    cancel: Cancel
+    login: Login
+    logout: Logout
+    save: Save
+    success:
+        saved: 'Changes saved successfully.'
+
+
+mirsch.admin.form.legend.personal: 'Persöhnliche Einstellungen'
+mirsch.admin.form.username: 'Benutzername'
+admin_group:
+  title: 'messages'

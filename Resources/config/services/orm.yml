@@ -1,0 +1,13 @@
+services:
+
+    mirsch.admin.event_listener.orm_mapped_super_class_subscriber:
+        class: Mirsch\Bundle\AdminBundle\EventListener\OrmMappedSuperClassSubscriber
+        arguments: ['%mirsch.resources%']
+        tags:
+            - { name: doctrine.event_subscriber, priority: 10000 }
+
+    mirsch.admin.event_listener.orm_repository_class_subscriber:
+        class: Mirsch\Bundle\AdminBundle\EventListener\OrmRepositoryClassSubscriber
+        arguments: ['%mirsch.resources%']
+        tags:
+            - { name: doctrine.event_subscriber, priority: 10000 }

@@ -1,0 +1,11 @@
+services:
+
+    security.role_hierarchy:
+        class: Mirsch\Bundle\AdminBundle\Security\RoleHierarchy
+        public: false
+        arguments: ['%security.role_hierarchy.roles%', '@event_dispatcher']
+
+    mirsch.admin.event_listener.role_hierarchy_listener:
+        class: Mirsch\Bundle\AdminBundle\EventListener\RoleHierarchyListener
+        tags:
+            - { name: kernel.event_listener, event: mirsch.admin.role_hierarchy, method: onRoleHierarchyEvent }

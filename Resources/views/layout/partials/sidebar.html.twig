@@ -1,0 +1,67 @@
+{#
+{% if not active_menu is defined %}
+    {% set active_menu = 'none' %}
+{% endif %}
+
+{% macro renderChilds(childs, active_menu) %}
+    {% for subitem in childs %}
+        {% if (not subitem.role is defined) or is_granted(subitem.role) %}
+            <li{% if subitem.label == active_menu %} class="active"{% endif %}>
+                <a href="{{ path(subitem.url) }}"><i class="fa fa-{{ subitem.icon }}"></i> {{ subitem.label | trans }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro hasActiveChilds(childs, active_menu) %}{% spaceless %}
+    {% set result = false %}
+    {% for subitem in childs %}
+        {% if not result %}
+            {% if (not subitem.role is defined) or is_granted(subitem.role) %}
+                {% if subitem.label == active_menu %}
+                    {% set result = true %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {{ result }}
+{% endspaceless %}{% endmacro %}
+#}
+
+<aside class="main-sidebar">
+    <section class="sidebar">
+        {{ knp_menu_render('main') }}
+        {#
+        <ul class="sidebar-menu">
+            {% for item in main_menu %}
+                {% if (not item.role is defined) or is_granted(item.role) %}
+
+                    {% set childs = false %}
+                    {% set activeChilds = false %}
+                    {% if item.childs is defined and item.childs | length %}
+                        {% set childs = _self.renderChilds(item.childs, active_menu) %}
+                        {% if childs %}
+                            {% set activeChilds = _self.hasActiveChilds(item.childs, active_menu) %}
+                        {% endif %}
+                    {% endif %}
+
+                    <li class="treeview{% if activeChilds or item.label == active_menu %} active{% endif %}">
+                        <a href="{{ path(item.url) }}">
+                            <i class="fa fa-{{ item.icon }}"></i> <span>{{ item.label | trans }}</span>
+                            {% if childs %}
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            {% endif %}
+                        </a>
+                        {% if childs %}
+                            <ul class="treeview-menu">
+                                {{ childs }}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        #}
+    </section>
+</aside>

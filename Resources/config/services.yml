@@ -1,0 +1,7 @@
+imports:
+    - { resource: 'services/orm.yml' }
+    - { resource: 'services/security.yml' }
+    - { resource: 'services/locale.yml' }
+    - { resource: 'services/menu.yml' }
+    - { resource: 'services/datatable.yml' }
+    - { resource: 'services/form.yml' }
