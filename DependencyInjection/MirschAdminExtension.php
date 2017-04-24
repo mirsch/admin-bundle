@@ -37,6 +37,9 @@ class MirschAdminExtension extends Extension implements PrependExtensionInterfac
         $this->loadResources($config['resources'], $container);
         $doctrineConfig = [];
         foreach ($container->getParameter('mirsch.resources') as $alias => $config) {
+            if (empty($config['interface'])) {
+                continue;
+            }
             $doctrineConfig['orm']['resolve_target_entities'][$config['interface']] = $config['entity'];
         }
         $container->prependExtensionConfig('doctrine', $doctrineConfig);

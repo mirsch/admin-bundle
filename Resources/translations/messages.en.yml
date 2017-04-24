@@ -15,6 +15,7 @@ mirsch:
                 groups: 'Groups'
         dashboard:
             title: 'Dashboard'
+        wait: 'Please wait...'
 
 
 admin_user:

@@ -94,6 +94,10 @@
     <script type="text/javascript" src="{{ webpack_asset('admin.entry', 'js') }}"></script>
     <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
 
+    <script type="text/javascript">
+        var LANG = LANG || {};
+        LANG.wait = '{{ 'mirsch.admin.wait' | trans | replace({"'": "\'"}) }}'
+    </script>
 {% endblock %}
 </body>
 </html>
