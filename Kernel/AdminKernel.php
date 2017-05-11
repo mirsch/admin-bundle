@@ -16,7 +16,6 @@ use AdamQuaile\Bundle\FieldsetBundle\AdamQuaileFieldsetBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
 use FOS\JsRoutingBundle\FOSJsRoutingBundle;
-use ju1ius\WebpackAssetsBundle\Ju1iusWebpackAssetsBundle;
 use Knp\Bundle\MenuBundle\KnpMenuBundle;
 use Mirsch\Bundle\AdminBundle\MirschAdminBundle;
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
@@ -51,7 +50,6 @@ class AdminKernel extends Kernel
             new DoctrineBundle(),
             new DoctrineMigrationsBundle(),
             new SensioFrameworkExtraBundle(),
-            new Ju1iusWebpackAssetsBundle(),
             new FOSJsRoutingBundle(),
             new SgDatatablesBundle(),
             new KnpMenuBundle(),

@@ -8,7 +8,18 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ webpack_asset('admin.entry', 'css') }}" />
+
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/daterangepicker.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/datatables.net-bs/css/dataTables.bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/select2/css/select2.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/select2-bootstrap-theme/select2-bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/admin-lte/css/AdminLTE.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/admin-lte/css/skins/_all-skins.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/font-awesome/css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/icheck/skins/square/blue.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/css/admin.css') }}" />
+
     {% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,7 +40,33 @@
 </div>
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ webpack_asset('admin.entry', 'js') }}"></script>
+
+    <script src="{{ asset('bundles/mirschadmin/lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/datatables.net/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/datatables.net-bs/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/admin-lte/js/app.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/icheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/fastclick/fastclick.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootbox/bootbox.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/block-ui/jquery.blockUI.js') }}"></script>
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+    <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/mirschadmin/js/admin.js') }}"></script>
+
+    <script type="text/javascript">
+        var LANG = LANG || {};
+        LANG.wait = '{{ 'mirsch.admin.wait' | trans | replace({"'": "\'"}) }}'
+    </script>
+
 {% endblock %}
 
 </body>

@@ -9,14 +9,17 @@
 
     {% block stylesheets %}
 
-        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.20/daterangepicker.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/u/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.12,b-1.2.1,b-colvis-1.2.1,b-flash-1.2.1,b-html5-1.2.1,b-print-1.2.1,r-2.1.0/datatables.min.css">
-        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.4.1/featherlight.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/css/bootstrap-slider.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />#}
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/daterangepicker.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/datatables.net-bs/css/dataTables.bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/select2/css/select2.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/select2-bootstrap-theme/select2-bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/admin-lte/css/AdminLTE.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/admin-lte/css/skins/_all-skins.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/font-awesome/css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/lib/icheck/skins/square/blue.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/mirschadmin/css/admin.css') }}" />
 
-        <link rel="stylesheet" href="{{ webpack_asset('admin.entry', 'css') }}" />
     {% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -76,28 +79,32 @@
 
 {% block javascripts %}
 
-    {#
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.20/daterangepicker.min.js"></script>
-    <script src="https://cdn.datatables.net/u/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.12,b-1.2.1,b-colvis-1.2.1,b-flash-1.2.1,b-html5-1.2.1,b-print-1.2.1,r-2.1.0/datatables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.4.1/featherlight.min.js"></script>
-    <script src="https://raw.githubusercontent.com/bartaz/sandbox.js/master/jquery.highlight.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/bootstrap-slider.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js'></script>
-    #}
+    <script src="{{ asset('bundles/mirschadmin/lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/datatables.net/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/datatables.net-bs/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/admin-lte/js/app.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/icheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/fastclick/fastclick.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/bootbox/bootbox.min.js') }}"></script>
+    <script src="{{ asset('bundles/mirschadmin/lib/block-ui/jquery.blockUI.js') }}"></script>
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script type="text/javascript" src="{{ webpack_asset('admin.entry', 'js') }}"></script>
+
     <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/mirschadmin/js/admin.js') }}"></script>
 
     <script type="text/javascript">
         var LANG = LANG || {};
         LANG.wait = '{{ 'mirsch.admin.wait' | trans | replace({"'": "\'"}) }}'
     </script>
+
 {% endblock %}
 </body>
 </html>
