@@ -63,7 +63,6 @@ class AdminKernel extends Kernel
             $bundles[] = new DebugBundle();
             $bundles[] = new WebProfilerBundle();
             $bundles[] = new SensioDistributionBundle();
-            $bundles[] = new SensioGeneratorBundle();
         }
 
         return $bundles;

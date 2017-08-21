@@ -13,9 +13,9 @@
 namespace Mirsch\Bundle\AdminBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use Mirsch\Bundle\AdminBundle\Event\MainMenuBuilderEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class MainMenuBuilder
@@ -59,23 +59,8 @@ class MainMenuBuilder
     {
         $menu = $this->factory->createItem('root');
 
-        $menu
-            ->addChild('dashboard', ['route' => 'homepage'])
-            ->setLabel('mirsch.admin.menu.main.dashboard')
-            ->setLabelAttribute('icon', 'dashboard');
-
-        if ($this->authorizationChecker->isGranted('ROLE_ADMIN_USER_LIST')) {
-            $userMenu = $menu
-                ->addChild('users_groups', ['route' => 'admin_user'])
-                ->setLabel('mirsch.admin.menu.main.user')
-                ->setLabelAttribute('icon', 'user-secret');
-            $userMenu->addChild('users', ['route' => 'admin_user'])
-                ->setLabel('mirsch.admin.menu.main.user')
-                ->setLabelAttribute('icon', 'user');
-            $userMenu->addChild('groups', ['route' => 'admin_group'])
-                ->setLabel('mirsch.admin.menu.main.groups')
-                ->setLabelAttribute('icon', 'users');
-        }
+        $this->addDashboardMenu($menu);
+        $this->addUserMenu($menu);
 
         $this->eventDispatcher->dispatch(
             MainMenuBuilderEvent::EVENT,
@@ -87,6 +72,43 @@ class MainMenuBuilder
         );
 
         return $menu;
+    }
+
+    /**
+     * @param \Knp\Menu\ItemInterface $menu
+     *
+     * @return void
+     */
+    protected function addDashboardMenu(ItemInterface $menu)
+    {
+        $menu
+            ->addChild('dashboard', ['route' => 'homepage'])
+            ->setLabel('mirsch.admin.menu.main.dashboard')
+            ->setLabelAttribute('icon', 'dashboard');
+    }
+
+    /**
+     * @param \Knp\Menu\ItemInterface $menu
+     *
+     * @return void
+     */
+    protected function addUserMenu(ItemInterface $menu)
+    {
+        if (!$this->authorizationChecker->isGranted('ROLE_ADMIN_USER_LIST')) {
+            return;
+        }
+
+        $userMenu = $menu
+            ->addChild('users_groups', ['route' => 'admin_user'])
+            ->setLabel('mirsch.admin.menu.main.user')
+            ->setLabelAttribute('icon', 'user-secret');
+
+        $userMenu->addChild('users', ['route' => 'admin_user'])
+                 ->setLabel('mirsch.admin.menu.main.user')
+                 ->setLabelAttribute('icon', 'user');
+        $userMenu->addChild('groups', ['route' => 'admin_group'])
+                 ->setLabel('mirsch.admin.menu.main.groups')
+                 ->setLabelAttribute('icon', 'users');
     }
 
 }
