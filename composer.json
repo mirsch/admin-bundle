@@ -32,7 +32,8 @@
     },
     "require-dev": {
         "spryker/code-sniffer": "^0.8.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "phpunit/phpunit": "5.7"
     },
     "scripts": {
         "cs-check": "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml --ignore=admin-bundle/vendor --exclude=Spryker.Namespaces.UnusedUseStatement ./",

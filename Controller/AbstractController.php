@@ -12,6 +12,7 @@
 
 namespace Mirsch\Bundle\AdminBundle\Controller;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -40,7 +41,14 @@ abstract class AbstractController extends Controller
     }
 
     /**
-     * @param string $paramName
+     * Search an Entity by it's primary (ID) field
+     * using either an EntityRepository or the Parameter name of the Entity Resource
+     *
+     * e.g.:
+     * $this->findOr404('mirsch.admin.model.admin_user.entity', 123)
+     * $this->findOr404('mirsch.admin.model.admin_user.entity', 123)
+     *
+     * @param string|\Doctrine\ORM\EntityRepository $paramName
      * @param string $primaryValue
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -49,7 +57,11 @@ abstract class AbstractController extends Controller
      */
     protected function findOr404($paramName, $primaryValue)
     {
-        $entity = $this->repositoryFromParam($paramName)->find($primaryValue);
+        if ($paramName instanceof EntityRepository) {
+            $entity = $paramName->find($primaryValue);
+        } else {
+            $entity = $this->repositoryFromParam($paramName)->find($primaryValue);
+        }
 
         if ($entity === null) {
             throw new NotFoundHttpException(sprintf($this->trans('mirsch.admin.exception.not_found'), $primaryValue));
