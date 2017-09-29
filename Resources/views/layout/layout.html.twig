@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html{% if app.user.locale is defined and app.user.locale %} lang="{{ app.user.locale }}" xml:lang="{{ app.user.locale }}"{% endif %}>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
